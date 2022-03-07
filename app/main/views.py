@@ -1,5 +1,5 @@
 from flask import render_template
-from app import main
+from . import main
 
 # Views
 
@@ -9,4 +9,5 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    heading = "Pitch-Perfect"
+    return render_template ('index.html', head=heading)
