@@ -2,9 +2,8 @@ class Config:
     '''
     General configuration parent class
     '''
+    secret_key = 'no474tghff8735757t5hf75t77t8'
     pass
-
-
 
 
 class ProdConfig(Config):
@@ -26,8 +25,7 @@ class DevConfig(Config):
     DEBUG = True
 
 
-
 config_options = {
-'development':DevConfig,
-'production':ProdConfig
+    'development': DevConfig,
+    'production': ProdConfig
 }
