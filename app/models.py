@@ -35,3 +35,17 @@ class Pitch(db.Model):
 
     def __repr__(self):
         return f'Pitch {self.description}'
+
+
+class Comment(db.Model):
+    '''
+    '''
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key=True)
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    content = db.Column(db.String(255), index=True)
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+
+    def __repr__(self):
+        return f'Comment {self.content}'

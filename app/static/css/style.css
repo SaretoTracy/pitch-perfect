@@ -23,12 +23,12 @@ img {
 }
 
 .one {
-    background-color: blue;
+    background-color: #f76e1f;
     border-radius: 100px 0 0 0;
 }
 
 .two {
-    background-color: blueviolet;
+    background-color: #fcea2e;
     border-radius: 0 100px 0 0;
 }
 
@@ -38,15 +38,15 @@ img {
 }
 
 .four {
-    background-color: blue;
+    background-color: #2fd8fc;
     border-radius: 0 0 100px 0;
 }
 
 .sign {
-    border-bottom: 20px solid blueviolet;
+    border-bottom: 20px solid #fcea2e;
     border-top: 20px solid blueviolet;
-    border-left: 20px solid blue;
-    border-right: 20px solid blue;
+    border-left: 20px solid #f76e1f;
+    border-right: 20px solid #2fd8fc;
     margin-top: 4rem;
 }
 
