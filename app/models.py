@@ -5,25 +5,23 @@ from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-# generating_password_hash - This function takes in a password and generates a password hash.
-# check_password_hash - This function takes in a hash password and a password entered by a user and checks if the password matches to return a True or False
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
-# a model to define our user data.
-
-
-# connect our class to our database and allow communication.
 
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(20))
-    username = db.Column(db.String(20))
+    email = db.Column(db.String(250), unique=True)
+    password = db.Column(db.String(250))
+    username = db.Column(db.String(250))
+    
     pitches = db.relationship('Pitch', backref='owner')
     comments = db.relationship('Comment', backref='owner')
 
     def __repr__(self):
-        return f"User('{self.username}')"
+        return f"User('{self.firstname}')"
 
 
 class Pitch(db.Model):
@@ -66,7 +64,3 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'Comment {self.content}'
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.get(user_id)

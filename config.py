@@ -1,10 +1,11 @@
 import os
+
+
 class Config:
     '''
     General configuration parent class
     '''
     SECRETE_KEY = 'no474tghff8735757t5hf75t77t8'
-    SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:kimachas@localhost/pitch'
     pass
 
