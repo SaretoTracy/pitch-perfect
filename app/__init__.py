@@ -11,6 +11,7 @@ bootstrap = Bootstrap()
 db = SQLAlchemy()  # database object
 migrate = Migrate()
 login_manager = LoginManager()
+UPLOAD_FOLDER = 'static/uploads/'
 
 # provides different security levels and by setting it to strong will monitor the changes in a user's request header and log the user out.
 login_manager.session_protection = 'strong'
@@ -22,6 +23,8 @@ def create_app(config_name):
 
     app.config['SECRET_KEY'] = 'fhbhbghbg hreiuehfuhr'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://moringa:kimachas@localhost/pitch'
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
     # Initializing flask extensions
     bootstrap.init_app(app)

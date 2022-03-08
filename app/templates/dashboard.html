@@ -22,44 +22,54 @@
 
 <div class="container text-center">
     <h1 class="welcome">WELCOME, {{ name }}</h1>
-    <p>Pitch Perfect allows you to put forth pitches in various categories. You can browse the page to view posted pitches or submit your own.</p>
+    <p>Pitch Perfect allows you to view pitches from diffrent categories .You can browse the page to view posted pitches or submit your own.</p>
 </div>
 
 <div class="container-fluid categories">
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body text-center">
-                    <h4 class="card-title">PRODUCT PITCH</h4>
-                    <p class="card-text">The anatomy of grate sales pitch that will be guaranteed to take off.</p>
-                    <a href="" class="btn btn-primary">Submit Your Pitch</a>
-                </div>
+    <div class="row gx-5">
+        <div class="col-lg-4 col-md-4 col-sm-4 vid">
+            <video autoplay="autoplay" controls="controls" preload="preload">
+                <source src="../static/uploads/My 1 Minute Sales Pitch.mp4" type="video/mp4">
+                </source>
+            </video>
+            <div class="card-body">
+                <h5 class="card-title">PRODUCT PITCH</h5>
+                <p class="card-text">The anatomy of great sales pitch that will be guaranteed to take off.</p>
+                <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body text-center">
-                    <h4 class="card-title">INNOVATION PITCH</h4>
-                    <p class="card-text">A new and exciting idea, relevant for the present times.</p>
-                    <a href="" class="btn btn-primary">Submit Your Pitch</a>
-                </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 vid">
+            <video autoplay="autoplay" controls="controls" preload="preload">
+                <source src="../static/uploads/30-Second Elevator Pitch.mp4" type="video/mp4">
+                </source>
+            </video>
+            <div class="card-body">
+                <h5 class="card-title">ELEVATOR PITCH</h5>
+                <p class="card-text">Your elevator pitch should indirectly answer # Questions:Who am I? What is my expertise? What makes me unique?.
+                </p>
+                <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body text-center">
-                    <h4 class="card-title">PICKUP LINE</h4>
-                    <p class="card-text">Creative pick-up lines that will make you unforgettable!</p>
-                    <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
-                </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 vid">
+            <video autoplay="autoplay" controls="controls" preload="preload">
+                <source src="../static/uploads/How To Introduce Yourself In Interviews - 1 Minute Pro Career.mp4"
+                    type="video/mp4">
+                </source>
+            </video>
+            <div class="card-body">
+                <h5 class="card-title">INTERVIEW PITCH</h5>
+                <p class="card-text">Use your personal brand pitch to contol the outcome of your next interview'
+                </p>
+                <a href="{{ url_for('main.pitch') }}" class="btn btn-primary">Submit Your Pitch</a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="text-center">
-    <h3>BELOW ARE VARIOUS SUBMITTED PITCHES</h3>
-
+    <h3>Find the pitch you love to here,delight your senses from various pitch below.</h3>
 </div>
 <div class="container pitches-section">
     <div class="row">
@@ -79,8 +89,6 @@
             </div>
 
             <div class="vote">
-
-
                 <button class="upvote">👍</button>
                 <button class="downVote">👎</button>
             </div>
