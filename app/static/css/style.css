@@ -94,3 +94,11 @@ form {
     background: none;
     outline: none;
 }
+
+.pitches {
+    border-bottom: 20px solid #fcea2e;
+    border-top: 20px solid blueviolet;
+    border-left: 20px solid #f76e1f;
+    border-right: 20px solid #2fd8fc;
+    margin-top: 4rem;
+}

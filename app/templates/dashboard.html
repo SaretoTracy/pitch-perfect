@@ -63,7 +63,7 @@
 </div>
 <div class="container pitches-section">
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 pitches">
 
             {% for p in pitch %}
             <p>TITLE: {{p.title}} </p>
@@ -71,20 +71,28 @@
             <p>PITCH: {{p.description}}</p>
             <p>Submitted by: {{p.owner.username}}</p>
 
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                {% for comment in comments %}
+                <p> {{comment.content}}</p>
+
+                {% endfor %}
+            </div>
+
+            <div class="vote">
+
+
+                <button class="upvote">👍</button>
+                <button class="downVote">👎</button>
+            </div>
+
 
             <form class="form-signin" method="POST" action="/dashboard">
                 {{ form.hidden_tag() }} {{ wtf.form_field(form.content) }}
                 <button class="btn btn-lg btn-primary btn-block comment-btn" type="submit">Post comment</button>
             </form>
-            <hr> {% endfor %}
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            {% for comment in comments %}
-            <p> {{comment.content}}</p>
-
             {% endfor %}
-        </div>
 
+        </div>
 
     </div>
 
