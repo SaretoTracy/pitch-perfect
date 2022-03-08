@@ -11,9 +11,9 @@ from sqlalchemy.sql import func
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-    firstname = db.Column(db.String(150))
+    email = db.Column(db.String(50), unique=True)
+    password = db.Column(db.String(20))
+    firstname = db.Column(db.String(20))
     pitches = db.relationship('Pitch', backref='owner')
     comments = db.relationship('Comment', backref='owner')
 

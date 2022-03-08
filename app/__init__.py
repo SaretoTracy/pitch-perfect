@@ -1,12 +1,14 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from config import config_options
 from os import path
 
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()  # database object
+migrate = Migrate(db)
 
 
 def create_app(config_name):
@@ -29,14 +31,5 @@ def create_app(config_name):
     app.register_blueprint(auth, url_prefix='/')
 
     from .models import User, Comment, Pitch
-    # create_database(app)
-
-    # Will add the views and forms
 
     return app
-
-
-# def create_database(app):
-#     if not path.exists('app/' + 'pitch.db'):
-#         db.create_all(app=app)
-#         print('Created Database!')
