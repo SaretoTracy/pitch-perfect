@@ -1,7 +1,10 @@
-from flask import Blueprint
-from flask import render_template, request, flash
 from . import auth
 from flask_sqlalchemy import SQLAlchemy
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
+from . import db
+from flask_login import login_user, login_required, logout_user, current_user
 
 
 auth = Blueprint('auth', __name__)
@@ -35,3 +38,10 @@ def signup():
 def login():
 
     return render_template('login.html')
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('auth.login'))
