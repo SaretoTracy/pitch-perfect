@@ -1,6 +1,7 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -17,7 +18,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(20))
-    firstname = db.Column(db.String(20))
+    username = db.Column(db.String(20))
     pitches = db.relationship('Pitch', backref='owner')
     comments = db.relationship('Comment', backref='owner')
 
@@ -65,3 +66,7 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'Comment {self.content}'
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.get(user_id)

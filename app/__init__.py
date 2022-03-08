@@ -9,13 +9,11 @@ from os import path
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()  # database object
-migrate = Migrate(db)
+migrate = Migrate()
 login_manager = LoginManager()
+
 # provides different security levels and by setting it to strong will monitor the changes in a user's request header and log the user out.
 login_manager.session_protection = 'strong'
-
-
-login_manager.login_view = 'auth.login'
 
 
 def create_app(config_name):
@@ -23,6 +21,7 @@ def create_app(config_name):
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = 'fhbhbghbg hreiuehfuhr'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://moringa:kimachas@localhost/pitch'
 
     # Initializing flask extensions
     bootstrap.init_app(app)
