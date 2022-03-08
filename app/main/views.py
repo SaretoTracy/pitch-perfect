@@ -11,3 +11,9 @@ def index():
     '''
     heading = "Pitch-Perfect"
     return render_template('index.html', head=heading)
+
+
+@main.route('/error')
+def error():
+
+    return render_template('error.html')
