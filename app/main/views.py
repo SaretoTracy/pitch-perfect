@@ -20,19 +20,19 @@ def error():
     return render_template('error.html')
 
 
-@main.route('/dashboard', methods=['GET', 'POST'])
-@login_required
-def dashboard():
-    pitch = Pitch.query.all()
+# @main.route('/dashboard', methods=['GET', 'POST'])
+# @login_required
+# def dashboard():
+#     pitch = Pitch.query.all()
 
-    form = CommentForm()
-    if form.validate_on_submit():
-        comment = Comment(owner_id=current_user.id, content=form.content.data)
-        form.content.data = ''
+#     form = CommentForm()
+#     if form.validate_on_submit():
+#         comment = Comment(owner_id=current_user.id, content=form.content.data)
+#         form.content.data = ''
 
-        db.session.add(comment)
-        db.session.commit()
-    return render_template('dashboard.html', name=current_user.username, pitch=pitch, form=form, content=form.content.data)
+#         db.session.add(comment)
+#         db.session.commit()
+#     return render_template('dashboard.html', name=current_user.username, pitch=pitch, form=form, content=form.content.data)
 
 
 @main.route('/pitch', methods=['GET', 'POST'])
