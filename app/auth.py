@@ -16,7 +16,7 @@ def signup():
     # getting info from form
     if request.method == 'POST':
         email = request.form.get('email')
-        username = request.form.get('userame')
+        username = request.form.get('username')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
@@ -36,7 +36,7 @@ def signup():
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('main.index'))
+            return redirect(url_for('main.dashboard'))
 
     return render_template("signup.html", user=current_user)
 
@@ -52,7 +52,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('main.index'))
+                return redirect(url_for('main.dashboard'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
