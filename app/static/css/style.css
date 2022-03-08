@@ -42,6 +42,26 @@ img {
     border-radius: 0 0 100px 0;
 }
 
+p {
+    font-size: 20px;
+}
+
+span {
+    color: #f76e1f;
+}
+
+h1 {
+    color: blueviolet;
+}
+
+.btn {
+    border-radius: 30px;
+    border: none;
+    color: blueviolet;
+    background: rgb(247, 110, 31);
+    background: linear-gradient(90deg, rgba(247, 110, 31, 1) 0%, rgba(247, 110, 31, 1) 37%, rgba(252, 234, 46, 1) 62%, rgba(252, 234, 46, 1) 100%);
+}
+
 .sign {
     border-bottom: 20px solid #fcea2e;
     border-top: 20px solid blueviolet;

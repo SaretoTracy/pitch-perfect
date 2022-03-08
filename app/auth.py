@@ -2,9 +2,7 @@ from flask import Blueprint
 from flask import render_template, request, flash
 from . import auth
 from flask_sqlalchemy import SQLAlchemy
-# define new database
-db = SQLAlchemy()  # database object
-DB_NAME = "pitch"  # database name
+
 
 auth = Blueprint('auth', __name__)
 
