@@ -22,7 +22,7 @@ class PitchForm(FlaskForm):
 
     title = StringField('Title of pitch', validators=[InputRequired()])
     category = StringField(
-        'Category: Innovation, Business or Pickup Line', validators=[InputRequired()])
+        'Category: Innovation, Elevator or Interview', validators=[InputRequired()])
     description = StringField(
         'Pitch', validators=[InputRequired()], widget=TextArea())
 
