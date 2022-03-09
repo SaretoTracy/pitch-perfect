@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 .home {
     display: flex;
     justify-content: space-around;
@@ -61,9 +67,8 @@ a {
 .btn {
     border-radius: 30px;
     border: none;
-    background-color: blueviolet;
-    /* background: rgb(247, 110, 31);
-    background: linear-gradient(90deg, rgba(247, 110, 31, 1) 0%, rgba(247, 110, 31, 1) 37%, rgba(252, 234, 46, 1) 62%, rgba(252, 234, 46, 1) 100%); */
+    background: rgb(247, 110, 31);
+    background: linear-gradient(90deg, rgba(247, 110, 31, 1) 0%, rgba(247, 110, 31, 1) 37%, rgba(252, 234, 46, 1) 62%, rgba(252, 234, 46, 1) 100%);
 }
 
 .sign {
@@ -105,4 +110,15 @@ form {
     border-left: 20px solid #f76e1f;
     border-right: 20px solid #2fd8fc;
     margin-top: 4rem;
+}
+
+.nav {
+    height: 70px;
+    font-size: 23px;
+    background: rgb(247, 110, 31);
+    background: linear-gradient(90deg, rgba(247, 110, 31, 1) 0%, rgba(247, 110, 31, 1) 37%, rgba(252, 234, 46, 1) 62%, rgba(252, 234, 46, 1) 100%);
+}
+
+.col-sm-6 {
+    padding-top: 5rem;
 }
