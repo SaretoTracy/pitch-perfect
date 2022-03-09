@@ -129,4 +129,5 @@ form {
     border: none;
     font-size: 25px;
     color: blueviolet;
+    pointer-events: none;
 }
