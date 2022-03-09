@@ -122,3 +122,11 @@ form {
 .col-sm-6 {
     padding-top: 5rem;
 }
+
+.voting {
+    width: 60px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: blueviolet;
+}
