@@ -41,7 +41,7 @@ def pitch():
     form = PitchForm()
 
     if form.validate_on_submit():
-        pitch = Pitch(owner_id=current_user.id, title=form.title.data,
+        pitch = Pitch(user=current_user.id, title=form.title.data,
                       category=form.category.data, description=form.description.data)
         form.title.data = ''
         form.category.data = ''
