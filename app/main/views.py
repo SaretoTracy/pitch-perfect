@@ -52,13 +52,14 @@ def pitch():
     return render_template('pitch.html', form=form)
 
 
-@main.route('/profile')
+@main.route('/user/<uname>')
 @login_required
-def profile():
+def profile(uname):
 
     pitch = Pitch.query.filter_by(id=current_user.id).all()
+    user = User.query.filter_by(username=uname).first()
 
-    return render_template('profile.html', name=current_user.username, email=current_user.email, password=current_user.password, pitch=pitch)
+    return render_template('profile/profile.html', name=current_user.username, email=current_user.email, password=current_user.password, user=user, pitch=pitch)
 
 
 @main.route('/user/<uname>/update', methods=['GET', 'POST'])
