@@ -5,6 +5,7 @@ from .models import User, Pitch, Comment
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, current_user
+from .email import mail_message
 
 from flask_wtf import FlaskForm
 from .main.forms import LoginForm, RegisterForm, PitchForm, CommentForm
@@ -84,3 +85,20 @@ def dashboard():
         db.session.add(comment)
         db.session.commit()
     return render_template('dashboard.html', name=current_user.username, pitch=pitch, form=form, content=form.content.data)
+
+
+# @auth.route('/register', methods=["GET", "POST"])
+# def register():
+#     form = RegistrationForm()
+#     if form.validate_on_submit():
+#         user = User(email=form.email.data,
+#                     username=form.username.data, password=form.password.data)
+#         db.session.add(user)
+#         db.session.commit()
+
+#         mail_message("Welcome to watchlist",
+#                      "email/welcome_user", user.email, user=user)
+
+#         return redirect(url_for('auth.login'))
+#         title = "New Account"
+#     return render_template('auth/register.html', registration_form=form)
