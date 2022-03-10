@@ -2,6 +2,7 @@ from wtforms import StringField, PasswordField, BooleanField
 import email_validator
 from flask_wtf import FlaskForm, form
 from wtforms.validators import InputRequired, Email
+from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.widgets import TextArea
 
 
@@ -29,3 +30,8 @@ class PitchForm(FlaskForm):
 
 class CommentForm(FlaskForm):
     content = StringField('Comment')
+
+
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Tell us about you.', validators=[InputRequired()])
+    submit = SubmitField('Submit')

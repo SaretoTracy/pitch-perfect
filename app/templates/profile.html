@@ -24,18 +24,49 @@
             <p>💁 USERNAME: {{ name }}</p>
             <p>✉️ USER EMAIL ADDRESS: {{ email }}</p>
         </div>
+        <div class="bio">
+            <!--Displaying user bio-->
+            {% if user.bio %}
+            <p> {{user.bio}}</p>
+            {%else%}
+            <p> {{user.username| capitalize}} has no bio </p>
+            {% endif %}
+        </div>
 
-        <!--pitches user has posted-->
-        <div class="col-lg-8 col-md-8 col-sm-6">
-            <h3> SUBMITTED PITCHES</h3>
-            <div>
-                {% for p in pitch %}
-                <p>Title: {{p.title}} </p>
-                <p>Category: {{p.category}}</p>
-                <p>Content of the pitch: {{p.description}}</p>
-                <hr> {% endfor %}
-            </div>
+        {% block content %}
+        <div class="container">
+            {{wtf.quick_form(form)}}
+        </div>
+        {% endblock %}
+
+
+        <!--Display profile photo-->
+        <div class="col-md-4">
+
+            {% if user.profile_pic_path %}
+            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail"> {%else%}
+            <p>No profile picture</p>
+            {% endif %}
+        </div>
+
+        {% if user == current_user %}
+        <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a> {% endif %}
+
+
+    </div>
+
+
+    <!--pitches user has posted-->
+    <div class="col-lg-8 col-md-8 col-sm-6">
+        <h3> SUBMITTED PITCHES</h3>
+        <div>
+            {% for p in pitch %}
+            <p>Title: {{p.title}} </p>
+            <p>Category: {{p.category}}</p>
+            <p>Content of the pitch: {{p.description}}</p>
+            <hr> {% endfor %}
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
