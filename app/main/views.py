@@ -39,9 +39,10 @@ def dashboard():
 @login_required
 def pitch():
     form = PitchForm()
+    user = User
 
     if form.validate_on_submit():
-        pitch = Pitch(user=current_user.id, title=form.title.data,
+        pitch = Pitch(owner_id=current_user.id, title=form.title.data,
                       category=form.category.data, description=form.description.data)
         form.title.data = ''
         form.category.data = ''
@@ -49,7 +50,7 @@ def pitch():
 
         db.session.add(pitch)
         db.session.commit()
-    return render_template('pitch.html', form=form)
+    return render_template('pitch.html', form=form, user=user)
 
 
 @main.route('/user/<uname>')

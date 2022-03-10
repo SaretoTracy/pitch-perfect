@@ -2,7 +2,7 @@ from wtforms import StringField, PasswordField, BooleanField
 import email_validator
 from flask_wtf import FlaskForm, form
 from wtforms.validators import InputRequired, Email
-from wtforms import StringField, TextAreaField, SubmitField
+from wtforms import StringField, TextAreaField, SubmitField, SelectField
 from wtforms.widgets import TextArea
 
 
@@ -22,8 +22,8 @@ class RegisterForm(FlaskForm):
 class PitchForm(FlaskForm):
 
     title = StringField('Title of pitch', validators=[InputRequired()])
-    category = StringField(
-        'Category: Innovation, Elevator or Interview', validators=[InputRequired()])
+    category = SelectField(u'Select Pitch Category', choices=[('....Select Category', 'Select Category.....'), (
+        'Technology', 'Technology'), ('Business', 'Business'), ('Health', 'Health')])
     description = StringField(
         'Pitch', validators=[InputRequired()], widget=TextArea())
 
