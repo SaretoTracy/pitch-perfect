@@ -23,7 +23,7 @@ class PitchForm(FlaskForm):
 
     title = StringField('Title of pitch', validators=[InputRequired()])
     category = SelectField(u'Select Pitch Category', choices=[('....Select Category', 'Select Category.....'), (
-        'Technology', 'Technology'), ('Business', 'Business'), ('Health', 'Health')])
+        'Product', 'Product'), ('Business', 'Business'), ('Elevator', 'Elevator'), ('Innovative', 'Innovative'), ('Pickup lines', 'Pickup lines'), ('Interview', 'Interview')])
     description = StringField(
         'Pitch', validators=[InputRequired()], widget=TextArea())
 
