@@ -32,6 +32,9 @@ def create_app(config_name):
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
     app.config['UPLOADED_PHOTOS_DEST'] = os.getcwd()
 
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)
