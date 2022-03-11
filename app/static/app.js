@@ -1,14 +1,19 @@
-let upvotebtn = document.querySelectorAll('#upvote');
-let downvotebtn = document.querySelectorAll('#downVote');
+let upvotebtn = document.querySelectorAll('.upvote');
+let downvotebtn = document.querySelectorAll('.downVote');
 let vote = document.querySelectorAll('.vote')
 
-let input1 = document.querySelectorAll('#input1')
-let input2 = document.querySelectorAll('#input2')
+let input1 = document.querySelectorAll('.input1');
+let input2 = document.querySelectorAll('.input2')
 
 
-for (let i = 0; i > upvotebtn.length || i > vote.length; i++) {
+for (let i = 0; i < upvotebtn.length; i++) {
     upvotebtn[i].addEventListener("click", () => {
-        input1.value = parseInt(input1.value) + 1;
+        console.log(input1[i].innerHTML++);
 
     })
 };
+for (let i = 0; i < downvotebtn.length; i++) {
+    downvotebtn[i].addEventListener("click", () => {
+        console.log(input2[i].innerHTML++);
+    })
+}
